@@ -23,6 +23,7 @@ class php::dev(
   # On FreeBSD there is no 'devel' package.
   $real_package = $::osfamily ? {
     'FreeBSD' => [],
+    'OpenBSD' => [],
     default   => $package,
   }
 

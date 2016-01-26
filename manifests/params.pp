@@ -143,6 +143,35 @@ class php::params inherits php::globals {
       $root_group              = 'wheel'
       $ext_tool_enabled        = false
     }
+    'OpenBSD': {
+      $major_version           = '5.6'
+      $config_root             = pick($cfg_root, '/etc')
+      $config_root_ini         = "/etc/php-${major_version}"
+      $config_root_inifile     = '/etc/php.ini'
+      # No common packages, because the required PHP base package will be
+      # pulled in as a dependency. This preserves the ability to choose
+      # any available PHP version by setting the 'package_prefix' parameter.
+      $common_package_names    = []
+      $common_package_suffixes = []
+      $cli_inifile             = "/etc/php-${major_version}.ini"
+      $dev_package_suffix      = undef
+      $fpm_pid_file            = '/var/run/php-fpm.pid'
+      $fpm_config_file         = "${config_root}/php-fpm.conf"
+      $fpm_error_log           = '/var/log/php-fpm.log'
+      $fpm_inifile             = "${config_root}/php-fpm.d/fpm.conf"
+      $fpm_package_suffix      = undef
+      $fpm_pool_dir            = "${config_root}/php-fpm.d"
+      $fpm_service_name        = 'php56_fpm'
+      $fpm_user                = 'www'
+      $fpm_group               = 'www'
+      $embedded_package_suffix = 'embed'
+      $embedded_inifile        = "${config_root}/php-embed.ini"
+      $package_prefix          = 'php-'
+      $compiler_packages       = ['gcc']
+      $manage_repos            = false
+      $root_group              = 'wheel'
+      $ext_tool_enabled        = false
+    }
     default: {
       fail("Unsupported osfamily: ${::osfamily}")
     }

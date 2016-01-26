@@ -21,7 +21,11 @@ class php::fpm::service(
     warning('php::fpm::service is private')
   }
 
-  $reload = "service ${service_name} reload"
+  if $::osfamily == 'OpenBSD' {
+    $reload = "rcctl restart ${service_name}"
+  } else {
+    $reload = "service ${service_name} reload"
+  }
 
   if $::operatingsystem == 'Ubuntu' and $::operatingsystemmajrelease == '12.04' {
     # Precise upstart doesn't support reload signals, so use

@@ -28,7 +28,7 @@ class php::pear (
       # This would normally not be problematic but if you specify a
       # package_prefix other than 'php' then it will fail.
       $package_name = "php-${::php::params::pear_package_suffix}"
-    } elsif $::osfamily == 'FreeBSD' {
+    } elsif $::osfamily == 'FreeBSD' or  $::osfamily == 'OpenBSD' {
       # On FreeBSD the package name is just 'pear'.
       $package_name = $::php::params::pear_package_suffix
     } else {

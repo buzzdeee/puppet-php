@@ -68,6 +68,7 @@ class php::fpm (
   # Implies that the option SET+=FPM was set when building the port.
   $real_package = $::osfamily ? {
     'FreeBSD' => [],
+    'OpenBSD' => [],
     default   => $package,
   }
 

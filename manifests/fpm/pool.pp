@@ -174,6 +174,7 @@ define php::fpm::pool (
   # Implies that the option SET+=FPM was set when building the port.
   $real_package = $::osfamily ? {
     'FreeBSD' => [],
+    'OpenBSD' => [],
     default   => $::php::fpm::package,
   }
 

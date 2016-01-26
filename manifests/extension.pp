@@ -169,9 +169,9 @@ define php::extension(
     )
   }
   else {
-    # On FreeBSD systems the settings file is required for every module
+    # On FreeBSD and OpenBSD systems the settings file is required for every module
     # (regardless of provider) to allow for proper module management.
-    if $::osfamily == 'FreeBSD' {
+    if $::osfamily == 'FreeBSD' or $::osfamily == 'OpenBSD' {
       $final_settings = deep_merge(
         {"${extension_key}" => "${name}.so"},
         $full_settings
