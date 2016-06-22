@@ -114,6 +114,9 @@ class php::globals (
     'FreeBSD': {
       $default_config_root = '/usr/local/etc'
     }
+    'OpenBSD': {
+      $default_config_root = '/etc/php-5.6'
+    }
     default: {
       fail("Unsupported osfamily: ${::osfamily}")
     }
