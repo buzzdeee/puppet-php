@@ -145,7 +145,7 @@ class php::params inherits php::globals {
     }
     'OpenBSD': {
       $major_version           = '5.6'
-      $config_root             = pick($cfg_root, '/etc')
+      $config_root             = pick($config_root, '/etc')
       $config_root_ini         = "/etc/php-${major_version}"
       $config_root_inifile     = '/etc/php.ini'
       # No common packages, because the required PHP base package will be
