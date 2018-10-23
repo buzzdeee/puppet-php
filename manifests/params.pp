@@ -144,7 +144,7 @@ class php::params inherits php::globals {
       $ext_tool_enabled        = false
     }
     'OpenBSD': {
-      $major_version           = '7.0'
+      $major_version           = '7.1'
       $config_root             = pick($config_root, '/etc')
       $config_root_ini         = "/etc/php-${major_version}"
       $config_root_inifile     = '/etc/php.ini'
@@ -161,7 +161,7 @@ class php::params inherits php::globals {
       $fpm_inifile             = "${config_root}/php-fpm.d/fpm.conf"
       $fpm_package_suffix      = undef
       $fpm_pool_dir            = "${config_root}/php-fpm.d"
-      $fpm_service_name        = 'php70_fpm'
+      $fpm_service_name        = 'php71_fpm'
       $fpm_user                = 'www'
       $fpm_group               = 'www'
       $embedded_package_suffix = 'embed'
